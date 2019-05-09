@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{ message }}
+</div>
+
+<div id="app-2">
+        <span :title="message">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+
+</div>
+<div id=example>
+    <ol>
+        <!-- 创建一个 todo-item 组件的实例 -->
+        <todo-list
+            v-for="item in groceryList"
+            :todo="item"
+            :key="item.id"
+        ></todo-list>
+    </ol>
+</div>
+
+
+<script src="index.js"></script>
+</body>
+
+</html>

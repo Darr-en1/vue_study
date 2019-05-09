@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data_method</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ foo }}</p>
+    <!-- 这里的 `foo` 不会更新！ -->
+    <button @click="foo = 'baz'">Change it</button>
+</div>
+
+<script>
+    var obj = {
+        foo: 'bar'
+    };
+    // 使用 Object.freeze()，这会阻止修改现有的属性，也意味着响应系统无法再追踪变化。
+    Object.freeze(obj);
+
+    var vm = new Vue({
+        el: '#app',
+        data: obj
+    });
+
+    console.log(vm.$el === document.getElementById('app'));   //true
+
+    var para = document.createElement("p");//创建需要增加的元素节点
+    var node = document.createTextNode("这是新段落。");//创建文本节点
+    para.appendChild(node);//将文本节点增加至创建的元素中
+
+    vm.$el.appendChild(para);//添加至父节点内
+
+
+</script>
+</body>
+</html>
